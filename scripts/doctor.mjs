@@ -217,8 +217,27 @@ if (agentsCount === agents.length) {
   passed++;
 }
 
-// 5. Figma MCP Status (Optional Accelerator)
-console.log(`\n${c.bold}5. Figma MCP Integration ${c.gray}(Optional Accelerator)${c.reset}`);
+// 5. Multi-Assistant & IDE Rules
+console.log(`\n${c.bold}5. Multi-Assistant & IDE Rules${c.reset}`);
+const ideRules = [
+  { name: 'Cursor Rules', path: '.cursor/rules/apple-ui.mdc' },
+  { name: 'Universal Cursorrules', path: '.cursorrules' },
+  { name: 'GitHub Copilot Instructions', path: '.github/copilot-instructions.md' }
+];
+let rulesCount = 0;
+for (const r of ideRules) {
+  if (existsSync(join(root, r.path))) rulesCount++;
+}
+if (rulesCount === ideRules.length) {
+  ok('IDE Assistant Rules', 'Cursor (.cursor/rules), Windsurf (.cursorrules), and Copilot configured');
+  passed++;
+} else {
+  warn(`IDE Rules: found ${rulesCount}/${ideRules.length} configured`);
+  warnings++;
+}
+
+// 6. Figma MCP Status (Optional Accelerator)
+console.log(`\n${c.bold}6. Figma MCP Integration ${c.gray}(Optional Accelerator)${c.reset}`);
 let figmaDetected = false;
 let figmaSource = '';
 

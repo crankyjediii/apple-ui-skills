@@ -1,0 +1,26 @@
+# Apple UI & Human Interface Guidelines Rules
+
+When working in this repository or building Apple-style interfaces:
+
+1. **System Controls First**:
+   - Use native SwiftUI / AppKit / UIKit controls before custom shapes (`Button`, `Toggle`, `Picker`, `TabView`, `NavigationSplitView`, `List`, `Menu`).
+   - On web, use native semantic HTML (`<button>`, `<input type="checkbox" role="switch">`, `<dialog>`).
+
+2. **Semantic Tokens Only**:
+   - Never hardcode hex values for system colors.
+   - Use `Color.primary`, `Color(.systemBackground)`, `PlatformColor`, or CSS `var(--label)`, `var(--bg)`, `var(--tint)`.
+   - Use Dynamic Type styles (`.font(.body)`, `.headline`, etc.).
+
+3. **Liquid Glass Conventions (26-Series)**:
+   - Floating controls and navigation layer only; never on content cards or behind paragraphs.
+   - Do not stack glass on glass; group controls with `GlassEffectContainer` or `.glassEffect()`.
+
+4. **Platform Ergonomics**:
+   - iOS: 44pt touch targets, bottom tab bar with scroll minimize, bottom sheets with grabber.
+   - macOS: Unified window toolbar, split view sidebar, push buttons with `.keyboardShortcut(.defaultAction)`.
+   - visionOS: 60pt targets, bottom ornaments (`.bottomOrnament`), hover highlight (`.hoverEffect`).
+   - watchOS: Vertical carousel list (`.listStyle(.carousel)`), capsule action buttons, Digital Crown rotation.
+
+5. **Licensing Guardrails**:
+   - Never commit Apple artwork, fonts, SVGs, or `.fig` binaries.
+   - Web and cross-platform designs are approximations based on public HIG guidelines.

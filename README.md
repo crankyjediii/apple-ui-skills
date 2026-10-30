@@ -2,7 +2,7 @@
 
 Teach your coding agent to build with **Apple's official UI kits**: design in Figma with real iOS, iPadOS, macOS, visionOS and watchOS components, turn them (or your own design) into SwiftUI or Next.js code, and check existing UI against them.
 
-Works with Claude Code, Codex, Cursor and [dozens of other agents](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+Works with Claude Code, Cursor, Windsurf, GitHub Copilot, Codex and [dozens of other agents](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). Includes ready-to-use rule files: `.cursor/rules/apple-ui.mdc`, `.cursorrules`, and `.github/copilot-instructions.md`.
 
 > Unofficial. Not affiliated with or endorsed by Apple. Contains no Apple artwork (see [NOTICE.md](NOTICE.md)).
 

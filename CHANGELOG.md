@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Multi-Assistant Rule Files**: Added `.cursor/rules/apple-ui.mdc`, `.cursorrules`, and `.github/copilot-instructions.md` for seamless HIG compliance in Cursor, Windsurf, VS Code, and GitHub Copilot.
+- **Interactive Multi-Platform Web Showcase**: Upgraded `examples/web-demo/index.html` with a live platform switcher (iOS, macOS window simulation, visionOS spatial dark glass, and watchOS AMOLED), theme modes (Auto, Light, Dark), and accessible controls.
+
 ## [0.3.0] - 2026-10-30
 
 ### Added

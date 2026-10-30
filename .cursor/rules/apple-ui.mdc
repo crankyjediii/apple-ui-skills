@@ -1,0 +1,47 @@
+---
+description: Apple UI & Human Interface Guidelines rules for SwiftUI, Web, and Cross-Platform
+globs: **/*.{swift,tsx,jsx,ts,js,html,css}
+---
+
+# Apple UI Design System & HIG Rules
+
+When designing, implementing, or auditing UI for iOS, iPadOS, macOS, visionOS, watchOS, or Apple-style web/cross-platform apps, follow these rules:
+
+## 1. System Controls First
+- Prefer native system components (`Button`, `Toggle`, `Picker`, `TabView`, `NavigationSplitView`, `List`, `Menu`, `ContentUnavailableView`) over custom-drawn shapes.
+- Map kit variant axes to native modifiers (e.g. `Size` → `.controlSize()`, `Style` → `.buttonStyle()`, `Destructive` → `role: .destructive`, `Disabled` → `.disabled()`).
+- On web, start with standard HTML semantic elements (`<button>`, `<input type="checkbox" role="switch">`, `<select>`, `<dialog>`).
+
+## 2. Colors & Typography
+- **Never hardcode hex values** for system UI. Always use semantic colors:
+  - **SwiftUI**: `Color.primary`, `.secondary`, `Color(.systemBackground)` (iOS) or `Color(nsColor: .windowBackgroundColor)` (macOS). Accent colors via `.tint()`.
+  - **React Native**: `PlatformColor('label')`, `PlatformColor('secondarySystemGroupedBackground')`.
+  - **Web**: CSS variables `var(--label)`, `var(--bg)`, `var(--tint)`, `var(--separator)` from `skills/apple-ui-web/references/tokens.css` or Tailwind classes from `skills/apple-ui-web/references/tailwind-theme.css`.
+- Honor Dynamic Type and system text styles (`.font(.largeTitle)`, `.headline`, `.body`, etc.). Never fix font sizes without `@ScaledMetric`.
+
+## 3. Liquid Glass (26-Series)
+- Liquid Glass belongs exclusively in the **controls and navigation layer** (floating toolbars, tab bars, grabber surfaces), never behind content text or cards.
+- Never stack glass upon glass. Group adjacent floating controls in `GlassEffectContainer` so materials merge seamlessly.
+- Always provide fallbacks for `prefers-reduced-transparency` and browsers/platforms lacking `backdrop-filter`.
+
+## 4. Platform-Specific Conventions
+- **iOS & iPadOS**:
+  - Minimum hit target: 44 x 44 pt.
+  - Top-level navigation: `TabView` with `.tabBarMinimizeBehavior(.onScrollDown)` and `.tabViewStyle(.sidebarAdaptable)`.
+  - Search: `Tab(role: .search)` or `.searchable(text:)`.
+  - Modal tasks: `.sheet` with `.presentationDetents([.medium, .large])` and `.presentationDragIndicator(.visible)`.
+- **macOS**:
+  - App-level structure: `NavigationSplitView` with `.listStyle(.sidebar)` and `.toolbar`.
+  - Push buttons: Mark the primary default action with `.keyboardShortcut(.defaultAction)`.
+- **visionOS**:
+  - Minimum hit target: 60 x 60 pt with minimum 16 pt margins between items.
+  - Controls: Attach window actions via `.ornament(attachmentAnchor: .scene(.bottom))`.
+  - Gaze feedback: Every custom control must support `.hoverEffect(.highlight)`.
+- **watchOS**:
+  - Navigation: Vertical carousel lists (`.listStyle(.carousel)`) linked to `.digitalCrownRotation`.
+  - Actions: Capsule buttons at the bottom of the screen (`.buttonBorderShape(.capsule)`).
+
+## 5. Licensing & Artwork Guardrails
+- Do **not** export, extract, or commit Apple Design Resources binary artwork, `.fig` files, or SF font files.
+- Refer to SF Symbols by system name (`systemImage: "..."`). On web/Android, use generic licensed icons.
+- Clearly state that web, Android, and cross-platform outputs are approximations outside Apple-OS software.

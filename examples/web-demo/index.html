@@ -1,22 +1,119 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-platform="ios" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apple-style web demo</title>
+<title>Apple UI Multi-Platform Web Showcase</title>
 <link rel="stylesheet" href="../../skills/apple-ui-web/references/tokens.css">
 <style>
-  body { background: var(--grouped-bg); }
-  main { max-width: 560px; margin: 0 auto; padding: 24px 16px 120px; }
-  h1 { font: var(--text-large-title); margin: 24px 0 4px; }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+
+  body {
+    background: var(--grouped-bg);
+    margin: 0;
+    padding: 0;
+    transition: background 200ms ease;
+    font-family: var(--font);
+    color: var(--label);
+  }
+
+  /* Control Panel / Switcher Bar */
+  .control-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 0.5px solid var(--separator);
+    padding: 10px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .bar-group { display: flex; align-items: center; gap: 8px; }
+  .bar-label { font: var(--text-caption-1); font-weight: 600; text-transform: uppercase; color: var(--label-2); }
+
+  .platform-btn, .theme-btn {
+    font: var(--text-caption-1);
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--r-pill);
+    border: 0.5px solid var(--separator);
+    background: var(--fill-2);
+    color: var(--label);
+    cursor: pointer;
+    transition: all 150ms ease;
+  }
+  .platform-btn[aria-pressed="true"], .theme-btn[aria-pressed="true"] {
+    background: var(--tint);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  /* Main Container */
+  main {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 24px 16px 140px;
+    transition: all 250ms var(--ease-spring);
+  }
+
+  /* Window Simulator for macOS */
+  .window-frame {
+    display: none;
+    background: var(--bg-2);
+    border-radius: 10px;
+    border: 0.5px solid var(--separator);
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  }
+  .window-header {
+    height: 38px;
+    background: var(--fill-2);
+    border-bottom: 0.5px solid var(--separator);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .traffic-light { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .tl-close { background: #ff5f56; border: 0.5px solid #e0443e; }
+  .tl-min { background: #ffbd2e; border: 0.5px solid #dea123; }
+  .tl-max { background: #27c93f; border: 0.5px solid #1aab29; }
+  .window-title { flex: 1; text-align: center; font: var(--text-caption-1); font-weight: 600; color: var(--label-2); margin-right: 48px; }
+
+  /* Headings & Text */
+  h1 { font: var(--text-large-title); margin: 16px 0 4px; }
   p.lede { color: var(--label-2); margin: 0 0 24px; font: var(--text-subheadline); }
-  main > h2 { font: var(--text-footnote); text-transform: uppercase; letter-spacing: .02em; color: var(--label-2); margin: 28px 16px 8px; }
+  h2.section-title { font: var(--text-footnote); text-transform: uppercase; letter-spacing: .02em; color: var(--label-2); margin: 28px 16px 8px; }
+
   .row { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 16px; }
 
-  .btn { font: var(--text-body); font-weight: 600; min-height: 44px; padding: 0 20px; border: 0; border-radius: var(--r-pill); cursor: pointer;
-    transition: transform var(--dur) var(--ease-spring), opacity 120ms; }
+  /* Standard Apple Buttons */
+  .btn {
+    font: var(--text-body);
+    font-weight: 600;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    transition: transform var(--dur) var(--ease-spring), opacity 120ms;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .btn:active { transform: scale(.97); opacity: .85; }
-  .btn:focus-visible, .switch input:focus-visible, .seg label:has(input:focus-visible) { outline: 3px solid color-mix(in srgb, var(--tint) 50%, transparent); outline-offset: 2px; }
+  .btn:focus-visible, .switch input:focus-visible, .seg label:has(input:focus-visible) {
+    outline: 3px solid color-mix(in srgb, var(--tint) 50%, transparent);
+    outline-offset: 2px;
+  }
   .btn:disabled { opacity: .35; cursor: default; }
   .btn--prominent { background: var(--tint); color: #fff; }
   .btn--tinted { background: color-mix(in srgb, var(--tint) 15%, transparent); color: var(--tint); }
@@ -24,45 +121,140 @@
   .btn--plain { background: none; color: var(--tint); }
   .btn--destructive { background: var(--red); color: #fff; }
 
+  /* Inset Grouped List */
   .list { background: var(--bg-3); border-radius: var(--r-card); margin: 0; padding: 0; list-style: none; overflow: hidden; }
   .list > li { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 0 16px; }
   .list > li + li { border-top: .5px solid var(--separator); }
 
+  /* Switch */
   .switch { display: inline-flex; align-items: center; gap: 12px; }
-  .switch input { appearance: none; width: 51px; height: 31px; border-radius: 16px; background: var(--fill); position: relative; margin: 0;
-    transition: background var(--dur) var(--ease-spring); cursor: pointer; }
-  .switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,.25); transition: transform var(--dur) var(--ease-spring); }
+  .switch input {
+    appearance: none; width: 51px; height: 31px; border-radius: 16px; background: var(--fill);
+    position: relative; margin: 0; transition: background var(--dur) var(--ease-spring); cursor: pointer;
+  }
+  .switch input::after {
+    content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px;
+    border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.25);
+    transition: transform var(--dur) var(--ease-spring);
+  }
   .switch input:checked { background: var(--green); }
   .switch input:checked::after { transform: translateX(20px); }
 
+  /* Segmented Control */
   .seg { display: flex; padding: 2px; border-radius: 9px; background: var(--fill-2); margin: 0 16px; }
   .seg label { flex: 1; text-align: center; padding: 6px 0; border-radius: 7px; font: var(--text-subheadline); font-weight: 500; cursor: pointer; }
   .seg label:has(input:checked) { background: var(--bg-3); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
   .seg input { position: absolute; opacity: 0; pointer-events: none; }
 
-  .hero { margin: 16px; padding: 28px 20px; border-radius: var(--r-card); color: #fff;
-    background: radial-gradient(120% 120% at 0% 0%, #5e5ce6, #0a84ff 55%, #30d158); }
-  .hero .chip { display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: var(--r-pill); font: var(--text-subheadline); font-weight: 600; }
+  /* Hero / Material Card */
+  .hero {
+    margin: 16px; padding: 28px 20px; border-radius: var(--r-card); color: #fff;
+    background: radial-gradient(120% 120% at 0% 0%, #5e5ce6, #0a84ff 55%, #30d158);
+  }
+  .hero .chip {
+    display: inline-block; margin-top: 12px; padding: 8px 16px;
+    border-radius: var(--r-pill); font: var(--text-subheadline); font-weight: 600;
+  }
 
-  .tabbar { position: fixed; inset: auto 16px max(16px, env(safe-area-inset-bottom)) 16px; max-width: 528px; margin: 0 auto; display: flex;
-    justify-content: space-around; padding: 8px; border-radius: 32px; }
+  /* Floating Bottom Tab Bar */
+  .tabbar {
+    position: fixed; inset: auto 16px max(16px, env(safe-area-inset-bottom)) 16px;
+    max-width: 528px; margin: 0 auto; display: flex; justify-content: space-around;
+    padding: 8px; border-radius: 32px; z-index: 90;
+  }
   .tabbar a { padding: 8px 16px; border-radius: 24px; color: var(--label-2); text-decoration: none; font: var(--text-caption-1); }
   .tabbar a[aria-current="page"] { background: var(--fill-2); color: var(--tint); }
 
-  dialog.sheet { border: 0; padding: 8px 20px 24px; width: min(100%, 560px); margin: auto auto 0; border-radius: var(--r-sheet) var(--r-sheet) 0 0;
-    background: var(--bg-2); color: var(--label); }
+  /* Sheet */
+  dialog.sheet {
+    border: 0; padding: 8px 20px 24px; width: min(100%, 560px); margin: auto auto 0;
+    border-radius: var(--r-sheet) var(--r-sheet) 0 0; background: var(--bg-2); color: var(--label);
+  }
   dialog.sheet::backdrop { background: rgba(0,0,0,.35); }
   .grabber { width: 36px; height: 5px; border-radius: 3px; background: var(--label-3); margin: 0 auto 12px; }
   .note { margin: 32px 16px 0; color: var(--label-3); font: var(--text-footnote); }
+
+  /* ──────── PLATFORM FLAVORS ──────── */
+
+  /* macOS Flavor */
+  :root[data-platform="macos"] {
+    --r-control: 6px;
+    --r-card: 8px;
+    --r-pill: 6px;
+    --grouped-bg: var(--bg);
+  }
+  :root[data-platform="macos"] .window-frame { display: block; }
+  :root[data-platform="macos"] .btn { min-height: 28px; padding: 0 14px; font: var(--text-subheadline); font-weight: 500; }
+  :root[data-platform="macos"] .tabbar { display: none; }
+  :root[data-platform="macos"] .hero { border-radius: 8px; }
+
+  /* visionOS Flavor */
+  :root[data-platform="visionos"] {
+    --grouped-bg: #141416;
+    --bg-3: rgba(255, 255, 255, 0.12);
+    --bg-2: rgba(255, 255, 255, 0.16);
+    --fill-2: rgba(255, 255, 255, 0.14);
+    --label: #ffffff;
+    --label-2: rgba(255, 255, 255, 0.65);
+    --separator: rgba(255, 255, 255, 0.18);
+    --r-card: 32px;
+    --r-control: 24px;
+    --r-pill: 999px;
+  }
+  :root[data-platform="visionos"] main { max-width: 660px; }
+  :root[data-platform="visionos"] .btn { min-height: 60px; padding: 0 28px; font-size: 19px; }
+  :root[data-platform="visionos"] .btn:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.35); }
+  :root[data-platform="visionos"] .list { backdrop-filter: var(--glass-blur); }
+
+  /* watchOS Flavor */
+  :root[data-platform="watchos"] {
+    --grouped-bg: #000000;
+    --bg-3: #1c1c1e;
+    --bg-2: #2c2c2e;
+    --fill-2: #3a3a3c;
+    --label: #ffffff;
+    --label-2: #8e8e93;
+    --separator: #38383a;
+  }
+  :root[data-platform="watchos"] main { max-width: 360px; padding: 12px 12px 100px; }
+  :root[data-platform="watchos"] .row { flex-direction: column; }
+  :root[data-platform="watchos"] .btn { width: 100%; min-height: 48px; border-radius: var(--r-pill); }
+  :root[data-platform="watchos"] .tabbar { display: none; }
 </style>
 </head>
 <body>
-<main>
-  <h1>Settings</h1>
-  <p class="lede">Apple-style controls built from <code>tokens.css</code>. Follows your system light or dark setting.</p>
 
-  <h2>Buttons</h2>
+<header class="control-bar" role="toolbar" aria-label="Showcase Controls">
+  <div class="bar-group">
+    <span class="bar-label">Platform:</span>
+    <button class="platform-btn" data-target="ios" aria-pressed="true">iOS</button>
+    <button class="platform-btn" data-target="macos" aria-pressed="false">macOS</button>
+    <button class="platform-btn" data-target="visionos" aria-pressed="false">visionOS</button>
+    <button class="platform-btn" data-target="watchos" aria-pressed="false">watchOS</button>
+  </div>
+  <div class="bar-group">
+    <span class="bar-label">Theme:</span>
+    <button class="theme-btn" data-theme-val="auto" aria-pressed="true">Auto</button>
+    <button class="theme-btn" data-theme-val="light" aria-pressed="false">Light</button>
+    <button class="theme-btn" data-theme-val="dark" aria-pressed="false">Dark</button>
+  </div>
+</header>
+
+<main>
+  <!-- macOS Window Frame Simulation -->
+  <div class="window-frame">
+    <div class="window-header">
+      <span class="traffic-light tl-close"></span>
+      <span class="traffic-light tl-min"></span>
+      <span class="traffic-light tl-max"></span>
+      <span class="window-title">Preferences — General</span>
+    </div>
+  </div>
+
+  <h1 id="page-title">Settings</h1>
+  <p class="lede" id="page-desc">Interactive Apple UI controls built from <code>tokens.css</code>. Switch platforms above to test HIG adaptation.</p>
+
+  <h2 class="section-title">Buttons</h2>
   <div class="row">
     <button class="btn btn--prominent">Prominent</button>
     <button class="btn btn--tinted">Tinted</button>
@@ -72,44 +264,87 @@
     <button class="btn btn--gray" disabled>Disabled</button>
   </div>
 
-  <h2>Toggles</h2>
+  <h2 class="section-title">Toggles & Controls</h2>
   <ul class="list">
-    <li><span>Wi-Fi</span><label class="switch"><input type="checkbox" role="switch" aria-label="Wi-Fi" checked></label></li>
-    <li><span>Bluetooth</span><label class="switch"><input type="checkbox" role="switch" aria-label="Bluetooth"></label></li>
+    <li><span>Wi-Fi Connection</span><label class="switch"><input type="checkbox" role="switch" aria-label="Wi-Fi" checked></label></li>
+    <li><span>Bluetooth Sync</span><label class="switch"><input type="checkbox" role="switch" aria-label="Bluetooth"></label></li>
     <li><span>Airplane Mode</span><label class="switch"><input type="checkbox" role="switch" aria-label="Airplane Mode" disabled></label></li>
   </ul>
 
-  <h2>Segmented control</h2>
-  <div class="seg" role="radiogroup" aria-label="View">
+  <h2 class="section-title">Segmented Control</h2>
+  <div class="seg" role="radiogroup" aria-label="View Scope">
     <label><input type="radio" name="v" checked>Day</label>
     <label><input type="radio" name="v">Week</label>
     <label><input type="radio" name="v">Month</label>
   </div>
 
-  <h2>Material</h2>
+  <h2 class="section-title">Liquid Glass Material</h2>
   <div class="hero">
-    <strong style="font: var(--text-title-2)">Now playing</strong><br>
-    <span class="glass chip">Glass chip over content</span>
+    <strong style="font: var(--text-title-2)">Featured Ambient</strong><br>
+    <span class="glass chip">Interactive Material Layer</span>
   </div>
 
-  <h2>Sheet</h2>
-  <div class="row"><button class="btn btn--tinted" id="open">Open sheet</button></div>
+  <h2 class="section-title">Modal Presentation</h2>
+  <div class="row">
+    <button class="btn btn--tinted" id="open">Open Modal Sheet</button>
+  </div>
 
-  <p class="note">An approximation of Apple's look from public HIG principles. Not Apple artwork. SF fonts and symbols are not included.</p>
+  <p class="note">Public HIG guidelines approximation. Not Apple artwork. SF fonts and SF Symbols are not bundled.</p>
 </main>
 
-<nav class="tabbar glass" aria-label="Primary">
-  <a aria-current="page" href="#">Home</a><a href="#">Library</a><a href="#">Search</a>
+<nav class="tabbar glass" id="tabbar" aria-label="Primary Navigation">
+  <a aria-current="page" href="#">Home</a>
+  <a href="#">Library</a>
+  <a href="#">Search</a>
 </nav>
 
-<dialog class="sheet" id="sheet" aria-label="Example sheet">
+<dialog class="sheet" id="sheet" aria-label="Inspector Sheet">
   <div class="grabber"></div>
-  <h2 style="margin:0 0 8px;font:var(--text-title-3)">New item</h2>
-  <p style="color:var(--label-2);margin:0 0 16px">Native dialog element: Escape closes it and focus stays inside.</p>
+  <h2 style="margin:0 0 8px;font:var(--text-title-3)">Modal Details</h2>
+  <p style="color:var(--label-2);margin:0 0 16px">Native dialog container with grabber indicator and focus containment.</p>
   <button class="btn btn--prominent" id="close" style="width:100%">Done</button>
 </dialog>
 
 <script>
+  // Platform switcher
+  const platformBtns = document.querySelectorAll('.platform-btn');
+  platformBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      platformBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      const platform = btn.getAttribute('data-target');
+      document.documentElement.setAttribute('data-platform', platform);
+
+      const title = document.getElementById('page-title');
+      const desc = document.getElementById('page-desc');
+      if (platform === 'macos') {
+        title.textContent = 'System Settings';
+        desc.textContent = 'macOS compact 28px buttons, grouped controls, and window chrome simulation.';
+      } else if (platform === 'visionos') {
+        title.textContent = 'Spatial Control';
+        desc.textContent = 'visionOS spatial dark glass materials with 60px touch/gaze targets and hover glow.';
+      } else if (platform === 'watchos') {
+        title.textContent = 'Glanceable';
+        desc.textContent = 'watchOS AMOLED black backdrop, full-width capsule actions, and high contrast.';
+      } else {
+        title.textContent = 'Settings';
+        desc.textContent = 'iOS 26 Liquid Glass floating tab bar, inset grouped lists, and rounded sheets.';
+      }
+    });
+  });
+
+  // Theme switcher
+  const themeBtns = document.querySelectorAll('.theme-btn');
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      themeBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      const val = btn.getAttribute('data-theme-val');
+      document.documentElement.setAttribute('data-theme', val);
+    });
+  });
+
+  // Sheet dialog
   const sheet = document.getElementById('sheet');
   document.getElementById('open').addEventListener('click', () => sheet.showModal());
   document.getElementById('close').addEventListener('click', () => sheet.close());
