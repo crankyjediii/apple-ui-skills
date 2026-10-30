@@ -296,3 +296,68 @@ void showActionConfirmation(BuildContext context) {
   );
 }
 ```
+
+---
+
+## 3. Dynamic Island / Live Activity (React Native)
+
+Animated capsule component supporting compact and expanded presentation states with iOS spring curves:
+
+```tsx
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Pressable, LayoutAnimation, Platform, UIManager } from 'react-native';
+
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+export function DynamicIslandPill({ title, duration }: { title: string; duration: string }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const toggle = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    setExpanded(!expanded);
+  };
+
+  return (
+    <Pressable onPress={toggle} style={[styles.islandContainer, expanded && styles.islandExpanded]}>
+      {expanded ? (
+        <View style={styles.expandedContent}>
+          <Text style={styles.islandTextBold}>{title}</Text>
+          <Text style={styles.islandSubtext}>{duration} remaining</Text>
+        </View>
+      ) : (
+        <View style={styles.compactContent}>
+          <Text style={styles.islandIcon}>⏱</Text>
+          <Text style={styles.islandText}>{duration}</Text>
+        </View>
+      )}
+    </Pressable>
+  );
+}
+
+const styles = StyleSheet.create({
+  islandContainer: {
+    backgroundColor: '#000000',
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    alignSelf: 'center',
+    minWidth: 120,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  islandExpanded: {
+    borderRadius: 24,
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    minWidth: 280,
+  },
+  compactContent: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  expandedContent: { alignItems: 'flex-start' },
+  islandIcon: { color: '#ff9500', fontSize: 13 },
+  islandText: { color: '#ffffff', fontSize: 13, fontWeight: '600' },
+  islandTextBold: { color: '#ffffff', fontSize: 15, fontWeight: '700' },
+  islandSubtext: { color: 'rgba(255,255,255,0.7)', fontSize: 12, marginTop: 2 },
+});
+```

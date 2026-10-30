@@ -1,0 +1,38 @@
+name: Feature or Recipe Request
+description: Suggest a new component pattern, agent skill, or assistant integration
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome requests for new Apple HIG component patterns, assistant rules, or framework integrations!
+  - type: input
+    id: summary
+    attributes:
+      label: Feature Summary
+      placeholder: E.g., Add VisionOS spatial window ornament recipe
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Target Platform(s)
+      description: Which Apple platforms does this apply to?
+      options:
+        - iOS & iPadOS
+        - macOS
+        - visionOS
+        - watchOS
+        - Web / Next.js
+        - Cross-Platform (React Native / Flutter)
+        - Universal (All Platforms)
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Detailed Description & HIG Motivation
+      description: How does this align with Apple's Human Interface Guidelines or 26-series kits?
+    validations:
+      required: true

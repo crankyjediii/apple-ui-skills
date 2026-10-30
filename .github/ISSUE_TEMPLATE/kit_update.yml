@@ -1,0 +1,42 @@
+name: Kit update or wrong mapping
+description: Report changes in Apple's 26-series Figma kits or an incorrect API mapping
+title: "[kit]: "
+labels: ["kit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when Apple releases an updated Figma Community file, or when a kit component mapping in `references/kit-index.md` / `patterns.md` needs correction.
+        **Reminder:** Do NOT upload Apple copyrighted artwork, font files, or Figma file exports.
+  - type: dropdown
+    id: kit
+    attributes:
+      label: Target Kit
+      options:
+        - iOS and iPadOS 26
+        - macOS 26
+        - visionOS 26
+        - watchOS 26
+    validations:
+      required: true
+  - type: input
+    id: component
+    attributes:
+      label: Component or Frame Name
+      placeholder: E.g., Navigation Bar / Large Title
+    validations:
+      required: true
+  - type: textarea
+    id: explanation
+    attributes:
+      label: What changed or is incorrect?
+      description: Describe the updated variant names, new properties, or native API correction.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested Fix (Code / Spec only)
+      description: Provide the corrected SwiftUI code or CSS recipe.
+    validations:
+      required: false

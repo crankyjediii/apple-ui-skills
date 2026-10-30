@@ -1,0 +1,44 @@
+name: Bug report
+description: Report an issue with skills, CLI tools, web tokens, or website
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue!
+        Please ensure you have run `npm run doctor` before submitting.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Affected Component
+      description: What part of Apple UI Skills is encountering an issue?
+      options:
+        - Claude Code Plugin & Slash Commands
+        - Agent Skills (apple-ui-*)
+        - SwiftUI Patterns & AppleUIGallery
+        - Web / CSS Tokens & Tailwind Theme
+        - Cross-Platform Recipes (React Native / Flutter)
+        - Website & Interactive Playground
+        - CLI Diagnostics (doctor.mjs / validate.mjs)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description & Reproduction Steps
+      description: Describe what happened and steps to reproduce.
+      placeholder: |
+        1. Install skill via `npx skills add ...`
+        2. Prompt agent with: "..."
+        3. Observed behavior vs expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info (`npm run doctor`)
+      description: Paste the output of `npm run doctor` or your Node/Xcode/macOS versions.
+      render: shell
+    validations:
+      required: false

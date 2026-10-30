@@ -66,6 +66,16 @@ public struct VisionOSGalleryView: View {
                 .padding(.vertical, 12)
                 .glassBackgroundEffect()
             }
+            .ornament(attachmentAnchor: .scene(.leading)) {
+                VStack(spacing: 16) {
+                    Button(action: {}) { Image(systemName: "plus") }
+                    Button(action: {}) { Image(systemName: "square.and.arrow.up") }
+                    Button(action: {}) { Image(systemName: "slider.horizontal.3") }
+                }
+                .padding(.vertical, 16)
+                .padding(.horizontal, 10)
+                .glassBackgroundEffect()
+            }
         }
     }
 }

@@ -69,6 +69,11 @@ public struct IOSGalleryView: View {
                 }
             }
 
+            // Dynamic Island Live Activity
+            Section("Dynamic Island (Live Activity)") {
+                DynamicIslandSampleView()
+            }
+
             // Inset Grouped Settings
             Section("Settings & Preferences") {
                 Toggle("Push Notifications", isOn: $notificationsEnabled)
@@ -178,6 +183,61 @@ public struct IOSGalleryView: View {
         }
         .searchable(text: $searchText)
         .navigationTitle("Search")
+    }
+}
+
+struct DynamicIslandSampleView: View {
+    @State private var isExpanded = false
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 10) {
+            Button {
+                withAnimation(.spring(response: 0.32, dampingFraction: 0.76)) {
+                    isExpanded.toggle()
+                }
+            } label: {
+                HStack {
+                    if isExpanded {
+                        HStack(spacing: 12) {
+                            Image(systemName: "timer")
+                                .foregroundStyle(.orange)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Delivery in progress")
+                                    .font(.caption2)
+                                    .bold()
+                                Text("12 mins away")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "bicycle")
+                                .foregroundStyle(.green)
+                        }
+                        .padding(.horizontal, 16)
+                    } else {
+                        HStack {
+                            Image(systemName: "timer")
+                                .foregroundStyle(.orange)
+                            Spacer()
+                            Text("12m")
+                                .font(.caption2)
+                                .monospacedDigit()
+                        }
+                        .padding(.horizontal, 12)
+                    }
+                }
+                .frame(maxWidth: isExpanded ? .infinity : 130, minHeight: isExpanded ? 54 : 36)
+                .background(.black, in: Capsule())
+                .foregroundStyle(.white)
+            }
+            .buttonStyle(.plain)
+
+            Text("Tap capsule to toggle compact / expanded state")
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 8)
     }
 }
 

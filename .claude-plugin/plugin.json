@@ -1,6 +1,6 @@
 {
   "name": "apple-ui-skills",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Use Apple's official 26-series UI kits (macOS, iOS/iPadOS, visionOS, watchOS) from coding agents: implement in SwiftUI or Next.js from built-in references, and audit. Figma is optional.",
   "author": { "name": "apple-ui-skills contributors" },
   "license": "MIT",

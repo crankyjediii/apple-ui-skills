@@ -106,3 +106,55 @@ Set the page background to `var(--grouped-bg)` for this look.
 ## Large title that collapses
 
 Use `position: sticky; top: 0` on a compact bar and an `IntersectionObserver` on the large title: when it leaves view, add `data-collapsed` to the bar to fade in its inline title.
+
+## Dynamic Island / Live Activity capsule
+
+```html
+<div class="dynamic-island" data-expanded="false" role="region" aria-label="Live Activity">
+  <div class="island-content">
+    <span class="island-leading">⏱</span>
+    <span class="island-title">12m remaining</span>
+    <span class="island-trailing">Live</span>
+  </div>
+</div>
+```
+```css
+.dynamic-island {
+  position: fixed; top: max(12px, env(safe-area-inset-top)); left: 50%;
+  transform: translateX(-50%); width: 126px; height: 36px;
+  background: #000000; color: #ffffff; border-radius: var(--r-pill);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px; cursor: pointer; user-select: none;
+  transition: width 320ms var(--ease-spring), height 320ms var(--ease-spring), border-radius 320ms var(--ease-spring);
+  z-index: 1000;
+}
+.dynamic-island[data-expanded="true"] {
+  width: min(calc(100% - 32px), 360px); height: 72px; border-radius: 28px; padding: 0 20px;
+}
+```
+
+## Spatial ornament (visionOS style)
+
+```html
+<aside class="spatial-ornament glass" aria-label="Floating Controls">
+  <button aria-label="Previous">⏮</button>
+  <button aria-label="Play">▶️</button>
+  <button aria-label="Next">⏭</button>
+</aside>
+```
+```css
+.spatial-ornament {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 16px; padding: 10px 24px;
+  border-radius: var(--r-pill); z-index: 500;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.06);
+}
+.spatial-ornament button {
+  background: none; border: 0; color: var(--label); font-size: 16px;
+  cursor: pointer; padding: 8px; border-radius: 50%;
+  transition: transform var(--dur) var(--ease-spring), background 150ms;
+}
+.spatial-ornament button:hover { background: var(--fill); transform: scale(1.08); }
+.spatial-ornament button:active { transform: scale(0.95); }
+```

@@ -10,6 +10,7 @@ public struct MacOSGalleryView: View {
     @State private var sliderValue = 0.65
     @State private var searchText = ""
     @State private var showSheet = false
+    @State private var showInspector = true
 
     public init() {}
 
@@ -142,6 +143,32 @@ public struct MacOSGalleryView: View {
                         Button(action: {}) { Image(systemName: "list.bullet") }
                     }
                 }
+                ToolbarItem(placement: .automatic) {
+                    Button(action: { showInspector.toggle() }) {
+                        Image(systemName: "sidebar.trailing")
+                    }
+                    .help("Toggle Inspector Panel")
+                }
+            }
+            .inspector(isPresented: $showInspector) {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Inspector Panel")
+                        .font(.headline)
+                    Text("macOS 26 Inspector for detailed metadata and contextual properties.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                    Divider()
+
+                    LabeledContent("Component", value: selectedItem?.title ?? "Button")
+                    LabeledContent("Platform", value: "macOS 26")
+                    LabeledContent("Material", value: "Liquid Glass")
+                    LabeledContent("Access", value: "Standard")
+
+                    Spacer()
+                }
+                .padding(16)
+                .frame(minWidth: 220)
             }
             .sheet(isPresented: $showSheet) {
                 VStack(spacing: 16) {

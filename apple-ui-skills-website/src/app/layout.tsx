@@ -81,7 +81,7 @@ const jsonLd = {
     "Agent skills and a Claude Code plugin that teach coding agents to build with Apple's official 26-series UI kits.",
   codeRepository: "https://github.com/crankyjediii/apple-ui-skills",
   programmingLanguage: ["Swift", "TypeScript", "CSS"],
-  version: "0.4.0",
+  version: "0.5.0",
   license: "https://opensource.org/licenses/MIT",
   runtimePlatform: ["iOS", "macOS", "visionOS", "watchOS", "Web"],
   author: {

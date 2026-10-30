@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { ThreePillars } from "@/components/ThreePillars";
 import { PlatformsSection } from "@/components/PlatformsSection";
+import { PlaygroundSection } from "@/components/PlaygroundSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { PromptsSection } from "@/components/PromptsSection";
@@ -20,22 +21,25 @@ export default function Home() {
       {/* 3. Platforms (segmented control + original mocks) */}
       <PlatformsSection />
 
-      {/* 4. How it works (3 steps + terminal) */}
+      {/* 4. Interactive Playground (Liquid Glass & dynamic island) */}
+      <PlaygroundSection />
+
+      {/* 5. How it works (3 steps + terminal) */}
       <HowItWorks />
 
-      {/* 5. The 12 skills (grid + native dialog sheet) */}
+      {/* 6. The 12 skills (grid + native dialog sheet) */}
       <SkillsGrid />
 
-      {/* 6. Try these prompts (copyable prompt cards) */}
+      {/* 7. Try these prompts (copyable prompt cards) */}
       <PromptsSection />
 
-      {/* 7. Verified (proof points list + honest limits) */}
+      {/* 8. Verified (proof points list + honest limits) */}
       <VerifiedSection />
 
-      {/* 8. FAQ (native <details> accordion) */}
+      {/* 9. FAQ (native <details> accordion) */}
       <FaqSection />
 
-      {/* 9. Final Call to Action */}
+      {/* 10. Final Call to Action */}
       <CtaSection />
     </main>
   );

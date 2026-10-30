@@ -11,6 +11,7 @@ export function HeaderNav() {
   const navLinks = [
     { label: "Features", href: "#features" },
     { label: "Platforms", href: "#platforms" },
+    { label: "Playground", href: "#playground" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "12 Skills", href: "#skills" },
     { label: "Prompts", href: "#prompts" },

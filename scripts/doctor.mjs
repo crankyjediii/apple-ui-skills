@@ -31,7 +31,8 @@ const run = (cmd) => {
   }
 };
 
-console.log(`\n${c.bold}Apple UI Skills Doctor${c.reset} ${c.gray}(v0.4.0)${c.reset}\n`);
+const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+console.log(`\n${c.bold}Apple UI Skills Doctor${c.reset} ${c.gray}(v${pkg.version || '0.5.0'})${c.reset}\n`);
 
 let passed = 0;
 let warnings = 0;

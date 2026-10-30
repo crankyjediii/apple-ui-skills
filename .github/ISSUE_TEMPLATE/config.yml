@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Apple UI Skills Documentation
+    url: https://crankyjediii.github.io/apple-ui-skills/
+    about: Read the official documentation, 12 skill guides, and interactive playground.
+  - name: Troubleshooting & Setup
+    url: https://github.com/crankyjediii/apple-ui-skills/blob/main/docs/troubleshooting.md
+    about: Common issues and diagnostics. Run npm run doctor before reporting.

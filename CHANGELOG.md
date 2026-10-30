@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-10-30
+
+### Added
+- **Official Marketing Website & Live Deployment**: Integrated Next.js 16 + React 19 marketing website (`apple-ui-skills-website/`) deployed continuously to GitHub Pages at [crankyjediii.github.io/apple-ui-skills](https://crankyjediii.github.io/apple-ui-skills/).
+- **Interactive Component & Liquid Glass Playground**: Added interactive sandbox on the website allowing real-time tuning of blur (`8px`..`48px`), saturation (`100%`..`240%`), opacity, system tint colors, button treatments, and Dynamic Island pill states with live SwiftUI & CSS code export.
+- **Expanded Swift & Web Component Patterns**:
+  - iOS Dynamic Island compact/expanded Live Activity presentation capsule in `IOSGalleryView.swift`.
+  - macOS Inspector Panel `.inspector(isPresented:)` sidebar in `MacOSGalleryView.swift`.
+  - visionOS dual spatial ornaments (bottom playback + leading utility controls) in `VisionOSGalleryView.swift`.
+  - Web & React Native recipes for Dynamic Island and Spatial Ornaments in `skills/apple-ui-web/references/recipes.md` and `skills/apple-ui-cross-platform/references/recipes.md`.
+- **GitHub Community Templates**: Added structured issue forms (`bug_report.yml`, `feature_request.yml`, `kit_update.yml`), issue config (`config.yml`), and quality-enforcing pull request template (`PULL_REQUEST_TEMPLATE.md`).
+
 ## [0.4.0] - 2026-10-30
 
 ### Added
