@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1c2b4d"/>
+      <stop offset="50%" stop-color="#0f1424"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <linearGradient id="tintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a84ff"/>
+      <stop offset="50%" stop-color="#5e5ce6"/>
+      <stop offset="100%" stop-color="#30d158"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+
+  <!-- Subtle ambient circles -->
+  <circle cx="200" cy="150" r="180" fill="#0a84ff" opacity="0.12" filter="blur(60px)"/>
+  <circle cx="1000" cy="450" r="220" fill="#5e5ce6" opacity="0.12" filter="blur(70px)"/>
+
+  <!-- Border Card Frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="32" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Badge Pill -->
+  <rect x="90" y="90" width="300" height="42" rx="21" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+  <circle cx="114" cy="111" r="6" fill="#30d158"/>
+  <text x="132" y="117" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#ffffff" letter-spacing="0.5">Official 26-Series Kits • v0.1.0</text>
+
+  <!-- Main Title -->
+  <text x="90" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="700" fill="#ffffff" letter-spacing="-1.5">
+    Apple UI Skills
+  </text>
+
+  <!-- Subtitle -->
+  <text x="90" y="280" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="500" fill="rgba(235,235,245,0.85)">
+    Teach your coding agent to build with Apple’s official UI kits.
+  </text>
+
+  <!-- Secondary description -->
+  <text x="90" y="325" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="400" fill="rgba(235,235,245,0.6)">
+    Figma MCP component design • Native SwiftUI &amp; Next.js code • Automated HIG audit
+  </text>
+
+  <!-- Terminal Command Box -->
+  <rect x="90" y="380" width="680" height="64" rx="16" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <circle cx="120" cy="412" r="5" fill="#ff5f56"/>
+  <circle cx="136" cy="412" r="5" fill="#ffbd2e"/>
+  <circle cx="152" cy="412" r="5" fill="#27c93f"/>
+  <text x="176" y="418" font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#64d2ff" font-weight="500">
+    npx skills add crankyjediii/apple-ui-skills
+  </text>
+
+  <!-- 4 Platform Badges -->
+  <g transform="translate(90, 480)">
+    <rect x="0" y="0" width="130" height="38" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="65" y="24" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">iOS &amp; iPadOS</text>
+
+    <rect x="146" y="0" width="100" height="38" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="196" y="24" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">macOS</text>
+
+    <rect x="262" y="0" width="110" height="38" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="317" y="24" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">visionOS</text>
+
+    <rect x="388" y="0" width="110" height="38" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+    <text x="443" y="24" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">watchOS</text>
+  </g>
+
+  <!-- Right Decorative Geometric Illustration -->
+  <g transform="translate(860, 160)">
+    <rect x="0" y="0" width="220" height="340" rx="28" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+    <rect x="20" y="24" width="180" height="28" rx="8" fill="rgba(255,255,255,0.08)"/>
+    <rect x="20" y="68" width="180" height="80" rx="14" fill="rgba(10,132,255,0.15)" stroke="rgba(10,132,255,0.4)" stroke-width="1.5"/>
+    <rect x="20" y="164" width="180" height="44" rx="22" fill="#0a84ff"/>
+    <rect x="20" y="222" width="180" height="44" rx="22" fill="rgba(255,255,255,0.1)"/>
+  </g>
+</svg>

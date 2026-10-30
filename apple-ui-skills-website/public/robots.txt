@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crankyjediii.github.io/apple-ui-skills/sitemap.xml

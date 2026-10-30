@@ -3,3 +3,11 @@ node_modules/
 *.log
 .build/
 _site/
+
+# apple-ui-skills-website artifacts
+apple-ui-skills-website/.next/
+apple-ui-skills-website/out/
+apple-ui-skills-website/node_modules/
+apple-ui-skills-website/screenshots/
+apple-ui-skills-website/lighthouse-report*.json
+apple-ui-skills-website/.agents/

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "apple-ui-audit": {
+      "source": "crankyjediii/apple-ui-skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-ui-audit/SKILL.md",
+      "computedHash": "fdee2052db7ae6ab33913ee61068b62dbc2fa1dcc64b0f825588b2cca2bea535"
+    },
+    "apple-ui-core": {
+      "source": "crankyjediii/apple-ui-skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-ui-core/SKILL.md",
+      "computedHash": "6762d36b71188b8d775188147c363f42453af68a0c61ee31aaa1ef0bb022b918"
+    },
+    "apple-ui-web": {
+      "source": "crankyjediii/apple-ui-skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-ui-web/SKILL.md",
+      "computedHash": "e9efbf2198a906ccbc0e906a660f4d445dff0fda808bdec9362de9d741f47fe0"
+    }
+  }
+}

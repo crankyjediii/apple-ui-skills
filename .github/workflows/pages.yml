@@ -27,6 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install website dependencies
+        run: cd apple-ui-skills-website && npm ci
       - name: Build site
         run: node scripts/build-site.mjs
       - name: Setup Pages

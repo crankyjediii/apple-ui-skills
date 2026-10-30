@@ -97,9 +97,10 @@ for (const p of market?.plugins ?? []) {
 
 // Forbidden assets: Apple Design Resources must not be redistributed
 const forbidden = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.pdf', '.fig', '.sketch', '.otf', '.ttf', '.woff', '.woff2', '.icon', '.heic']);
+const ignoredDirs = new Set(['.git', 'node_modules', '_site', '.build', 'apple-ui-skills-website']);
 const walk = (d) => {
   for (const e of readdirSync(d)) {
-    if (e === '.git' || e === 'node_modules') continue;
+    if (ignoredDirs.has(e)) continue;
     const p = join(d, e);
     if (statSync(p).isDirectory()) walk(p);
     else if (forbidden.has(extname(e).toLowerCase())) err(`forbidden asset type: ${relative(root, p)}`);
