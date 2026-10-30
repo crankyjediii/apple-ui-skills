@@ -18,6 +18,7 @@ Use this skill first. It routes to the platform skill (what the components are) 
 | Compose a design in Figma from kit components (needs Figma) | `apple-ui-figma-build` |
 | Turn a Figma node into code (needs Figma) | `apple-ui-figma-to-code`, then a stack skill |
 | Native code | `apple-ui-swiftui` |
+| Animation, springs, transitions, symbol effects, Reduce Motion | `apple-ui-motion` |
 | Next.js / React / CSS | `apple-ui-web` |
 | React Native, Flutter, Compose, Vue, Svelte | `apple-ui-cross-platform` |
 | Review existing UI against the kits | `apple-ui-audit` |

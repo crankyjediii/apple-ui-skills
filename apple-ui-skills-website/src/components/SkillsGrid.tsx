@@ -21,7 +21,7 @@ export function SkillsGrid() {
       <div className="container">
         <div className="section-header">
           <span className="section-eyebrow">Modular Architecture</span>
-          <h2 className="section-title">The 12 skills in the kit</h2>
+          <h2 className="section-title">The 13 skills in the kit</h2>
           <p className="section-subtitle">
             Install all 12 at once or mix and match the exact skills needed for your platform, design workflow, or code stack.
           </p>
@@ -50,7 +50,7 @@ export function SkillsGrid() {
           ))}
         </div>
 
-        {/* 12 Skills Grid */}
+        {/* 13 Skills Grid */}
         <div
           style={{
             display: "grid",

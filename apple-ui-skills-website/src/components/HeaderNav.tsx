@@ -13,7 +13,7 @@ export function HeaderNav() {
     { label: "Platforms", href: "#platforms" },
     { label: "Playground", href: "#playground" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "12 Skills", href: "#skills" },
+    { label: "13 Skills", href: "#skills" },
     { label: "Prompts", href: "#prompts" },
     { label: "FAQ", href: "#faq" },
   ];

@@ -49,7 +49,7 @@ export function Footer() {
             <a href="#features" style={{ color: "var(--label-2)" }}>Features</a>
             <a href="#platforms" style={{ color: "var(--label-2)" }}>Platforms</a>
             <a href="#playground" style={{ color: "var(--label-2)" }}>Playground</a>
-            <a href="#skills" style={{ color: "var(--label-2)" }}>12 Skills</a>
+            <a href="#skills" style={{ color: "var(--label-2)" }}>13 Skills</a>
             <a href="#prompts" style={{ color: "var(--label-2)" }}>Prompts</a>
             <a href="#faq" style={{ color: "var(--label-2)" }}>FAQ</a>
             <a

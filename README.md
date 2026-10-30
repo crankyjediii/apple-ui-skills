@@ -62,6 +62,7 @@ Want to see the web output first? Try the live interactive showcase & component 
 | `apple-ui-figma-build` | Compose screens in Figma from kit component instances (needs Figma) |
 | `apple-ui-figma-to-code` | Figma node to code, recognising kit components (needs Figma) |
 | `apple-ui-swiftui` | SwiftUI and Liquid Glass patterns for all four platforms |
+| `apple-ui-motion` | Springs, symbol effects, transitions, gesture velocity and Reduce Motion across SwiftUI, CSS, React Native, Flutter |
 | `apple-ui-web` | Next.js, React and CSS tokens, materials and recipes |
 | `apple-ui-cross-platform` | React Native, Flutter, Compose, Vue, Svelte |
 | `apple-ui-audit` | HIG and kit-fidelity review |

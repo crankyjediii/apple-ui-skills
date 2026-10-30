@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-10-30
+
+### Added
+- **Website**: added the motion skill card and updated skill counts to 13.
+- **`apple-ui-motion` skill**: spring maths and presets (`.smooth`, `.snappy`, `.bouncy`, `.interactiveSpring`) with constants read from the iOS 26 SDK, generated CSS `linear()` curves and a velocity-aware generator, Reanimated and Flutter presets, SF Symbol effect matrix, matched-geometry, zoom, glass-morph and sheet-detent patterns, drag-release velocity, and a Reduce Motion audit. Swift snippets are type-checked in `tests/swift/ios.swift`.
+
 ## [0.5.0] - 2026-10-30
 
 ### Added

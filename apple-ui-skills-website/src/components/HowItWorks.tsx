@@ -150,7 +150,7 @@ export function HowItWorks() {
             </h3>
 
             <p style={{ font: "var(--text-subheadline)", color: "var(--label-2)", marginBottom: "16px", lineHeight: 1.5 }}>
-              Add all 12 skills to your agent with a single universal command, or install the Claude Code plugin.
+              Add all 13 skills to your agent with a single universal command, or install the Claude Code plugin.
             </p>
 
             <div

@@ -7,7 +7,7 @@
       "name": "apple-ui-skills",
       "source": "./",
       "description": "Implement Apple-style UI in SwiftUI or Next.js from built-in references, and audit it. Figma is optional.",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "license": "MIT",
       "keywords": ["apple", "swiftui", "figma", "liquid-glass", "hig"],
       "skills": [
@@ -20,6 +20,7 @@
         "./skills/apple-ui-figma-to-code",
         "./skills/apple-ui-swiftui",
         "./skills/apple-ui-web",
+        "./skills/apple-ui-motion",
         "./skills/apple-ui-cross-platform",
         "./skills/apple-ui-audit",
         "./skills/apple-ui-setup"

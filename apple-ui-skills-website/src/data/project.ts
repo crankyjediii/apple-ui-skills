@@ -1,6 +1,6 @@
 export const PROJECT = {
   name: "Apple UI Skills",
-  version: "0.5.0",
+  version: "0.6.0",
   tagline: "Teach your coding agent to build with Apple's official 26-series UI kits.",
   description:
     "Agent skills and a Claude Code plugin that teach coding agents to design in Figma with real Apple components, write native SwiftUI or Next.js code, and audit existing UI against the Human Interface Guidelines.",

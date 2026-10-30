@@ -136,6 +136,18 @@ export const SKILLS: SkillItem[] = [
     samplePrompt: "Make this Next.js dashboard feel like iOS using Apple design tokens.",
   },
   {
+    id: "apple-ui-motion",
+    name: "apple-ui-motion",
+    oneLiner: "Springs, symbol effects, transitions, gesture velocity, and Reduce Motion.",
+    category: "Code Implementation",
+    description:
+      "Codifies Apple motion: spring presets (.smooth, .snappy, .bouncy, .interactiveSpring) with exact constants, CSS linear() spring curves, Reanimated and Flutter equivalents, SF Symbol effects, matched-geometry and zoom transitions, sheet detents, release-velocity gestures, and a Reduce Motion audit.",
+    whenToUse:
+      "Use when choosing or tuning an animation, converting a spring to CSS, animating SF Symbols, or making motion accessible.",
+    routeInfo: "Pairs with apple-ui-swiftui, apple-ui-web, or apple-ui-cross-platform for implementation.",
+    samplePrompt: "Make this card expand with an Apple-style spring and a Reduce Motion fallback.",
+  },
+  {
     id: "apple-ui-cross-platform",
     name: "apple-ui-cross-platform",
     oneLiner: "Apple-style UI in React Native, Flutter, Compose, Vue, and Svelte.",

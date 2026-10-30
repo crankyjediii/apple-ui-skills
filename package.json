@@ -1,6 +1,6 @@
 {
   "name": "apple-ui-skills",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "description": "Agent skills and a Claude Code plugin for Apple's official 26-series UI kits.",
   "license": "MIT",

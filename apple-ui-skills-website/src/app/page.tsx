@@ -27,7 +27,7 @@ export default function Home() {
       {/* 5. How it works (3 steps + terminal) */}
       <HowItWorks />
 
-      {/* 6. The 12 skills (grid + native dialog sheet) */}
+      {/* 6. The 13 skills (grid + native dialog sheet) */}
       <SkillsGrid />
 
       {/* 7. Try these prompts (copyable prompt cards) */}
