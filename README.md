@@ -14,7 +14,7 @@ Works with Claude Code, Codex, Cursor and [dozens of other agents](https://githu
 npx skills add crankyjediii/apple-ui-skills
 ```
 
-The installer asks which skills and which agents. Press Enter to accept the defaults. In Claude Code you can instead install it as a plugin, which also adds two helper agents and two commands:
+The installer asks which skills and which agents. Press Enter to accept the defaults. In Claude Code you can instead install it as a plugin, which also adds two helper agents and three commands:
 
 ```
 /plugin marketplace add crankyjediii/apple-ui-skills
@@ -68,7 +68,7 @@ Want to see the web output first? Open [`examples/web-demo/index.html`](examples
 
 Install only some: `npx skills add crankyjediii/apple-ui-skills --skill apple-ui-core --skill apple-ui-macos --skill apple-ui-swiftui`
 
-Claude Code plugin extras: agents `apple-ui-implementer` and `apple-ui-reviewer`, commands `/apple-ui-skills:implement` and `/apple-ui-skills:audit`.
+Claude Code plugin extras: agents `apple-ui-implementer` and `apple-ui-reviewer`, commands `/apple-ui-skills:setup`, `/apple-ui-skills:implement`, and `/apple-ui-skills:audit`. Terminal diagnostic: `npm run doctor`.
 
 ## FAQ
 

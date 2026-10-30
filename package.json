@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "doctor": "node scripts/doctor.mjs",
     "validate": "node scripts/validate.mjs",
     "check:swift": "./scripts/check-swift.sh",
     "test": "npm run validate"

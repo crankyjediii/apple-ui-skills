@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Start with: *"Check my Apple UI kit setup."* The `apple-ui-setup` skill walks through everything below.
+Start with: *"Check my Apple UI kit setup."* Or in Claude Code, run `/apple-ui-skills:setup`. From the terminal, run `node scripts/doctor.mjs` (or `npm run doctor`). The `apple-ui-setup` skill walks through everything below.
 
 | Problem | Fix |
 |---|---|
