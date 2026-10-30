@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3.0] - 2026-10-30
 
 ### Added
 - **SwiftUI Preview Gallery (`examples/apple-ui-gallery/`)**: Standalone Swift Package featuring `#Preview` blocks for iOS (adaptive tab bar, Liquid Glass buttons, inset grouped lists), macOS (unified toolbar, split view, push buttons), visionOS (spatial glass ornaments, gaze hover effects), and watchOS (carousel, Digital Crown, capsule action button).
