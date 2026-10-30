@@ -80,4 +80,6 @@ NavigationStack {
 
 - Build for each target platform you touched: `xcodebuild -scheme <Scheme> -destination 'generic/platform=iOS Simulator' build` (swap for `macOS`, `visionOS Simulator`, `watchOS Simulator`).
 - Run it and compare with `get_screenshot` of the kit node (see `apple-ui-figma-to-code`). Check Light/Dark, largest Dynamic Type, and the smallest device.
+- Verify in a **running, active window** (or the simulator). Offscreen rendering (`ImageRenderer`, `cacheDisplay`, a window that is not key) draws accent fills, tints and prominent buttons washed out or missing, which looks like a bug but is not.
+- `xcrun swiftc -typecheck` proves the API exists; only a visual check proves the look.
 - Report which kit variants you deliberately did not implement.

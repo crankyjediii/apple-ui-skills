@@ -14,7 +14,7 @@ Load `apple-ui-core`, then the platform skill, then the stack skill (`apple-ui-s
 3. **Classify each element**:
    - Instance of a kit component: its `mainComponent` name (for example `Button - Content Area`, `Tab Bar - iPhone`) plus variant properties tell you the component and state. Look it up in the platform skill's `<platform skill>/references/components.md`.
    - Custom component built by the user: treat as their design; implement it with system controls where one fits, otherwise custom views using semantic tokens.
-4. **Read details** with `get_design_context` on the nodes you need exact values for (spacing, radii, text style names, variable names). Prefer variable and style **names** over raw values.
+4. **Read details** with `get_design_context` on the nodes you need exact values for (spacing, radii, text style names, variable names). Prefer variable and style **names** over raw values. The tool returns React + Tailwind reference code; do not copy its classes. Read the `var(--name, fallback)` pairs in it as token names and default sizes (for example a push button reports `--button/radius` 6px and `--global/height` 24px). If the response is marked sparse, request the visible child nodes separately.
 5. **Map** each element with the platform skill's table (native stack) or `apple-ui-web` recipes (web). Variant axes become modifiers or props, not separate components.
 6. **Write the code** following the stack skill. Keep the user's project conventions (look at their existing components first).
 7. **Compare**: render the result, compare to the screenshot at the same size and mode, fix differences in layout, type and color.

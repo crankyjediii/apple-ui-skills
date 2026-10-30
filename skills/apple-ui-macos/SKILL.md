@@ -19,15 +19,18 @@ Load `apple-ui-core` first for license guardrails and the Figma read workflow.
 - Menu bar and keyboard shortcuts are first-class: every command should be in a menu with a shortcut where sensible.
 - Dark and light appearances are both required; use semantic colors.
 - Default (preferred) button is the blue accent push button that answers Return.
+- Regular push button per the kit: 24 pt tall, 6 pt corner radius, 16 pt horizontal padding, 13 pt medium label (kit variables `--global/height`, `--button/radius`, `--button/padding---horizontal`, `--global/font-size`). The system gives you these; only match them in non-native code.
+- In an **inactive window** accent fills (default and colored buttons) turn neutral. That is the kit's Active Window = False variant and it is automatic.
 
 ## Kit component to native API
 
 | Kit component | SwiftUI / AppKit |
 |---|---|
 | Push Button: Default / Preferred | `Button` with `.keyboardShortcut(.defaultAction)` and `.buttonStyle(.borderedProminent)`; `NSButton` `keyEquivalent = "\r"` |
-| Push Button: Bordered Neutral / Secondary | `.buttonStyle(.bordered)` |
-| Push Button: Bordered Colored | `.buttonStyle(.bordered)` + `.tint(color)` |
-| Push Button: Bordered Destructive | `Button(role: .destructive)` |
+| Push Button: Bordered Neutral (gray fill, label color) | `.buttonStyle(.bordered)` |
+| Push Button: Bordered Colored (filled with a custom tint, white label) | `.buttonStyle(.borderedProminent)` + `.tint(color)`; `NSButton` `bezelColor` |
+| Push Button: Bordered Secondary (light tinted fill, tinted label) | `.buttonStyle(.bordered)` + `.tint(color)`; check it in an active window |
+| Push Button: Bordered Destructive (red label on light red fill) | `Button(role: .destructive)` with `.bordered` |
 | Push Button: Borderless | `.buttonStyle(.borderless)` or `.plain` |
 | Arrow Buttons, Disclosure Button | `DisclosureGroup`; `NSButton` `.disclosure` bezel |
 | Checkboxes | `Toggle` with `.toggleStyle(.checkbox)`; Mixed state via `NSButton` `allowsMixedState` |
