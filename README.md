@@ -50,7 +50,7 @@ The agent checks your setup and suggests a first task. Figma is not required: th
 
 More ready-to-paste prompts: [docs/prompts.md](docs/prompts.md). Having trouble? [docs/troubleshooting.md](docs/troubleshooting.md).
 
-Want to see the web output first? Open [`examples/web-demo/index.html`](examples/web-demo/index.html) in a browser (it follows your light or dark setting). Want native Swift previews in Xcode? Open [`examples/apple-ui-gallery`](examples/apple-ui-gallery) in Xcode and activate the Canvas (`⌥⌘↩`).
+Want to see the web output first? Try the live interactive showcase at [crankyjediii.github.io/apple-ui-skills](https://crankyjediii.github.io/apple-ui-skills/) or open [`examples/web-demo/index.html`](examples/web-demo/index.html) in a browser. Want native Swift previews in Xcode? Open [`examples/apple-ui-gallery`](examples/apple-ui-gallery) in Xcode and activate the Canvas (`⌥⌘↩`).
 
 ## What is inside
 
