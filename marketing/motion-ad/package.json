@@ -1,0 +1,15 @@
+{
+  "name": "apple-ui-skills-motion-ad",
+  "private": true,
+  "type": "module",
+  "description": "30-second programmatic motion ad for Apple UI Skills (HTML scene + puppeteer-core + ffmpeg).",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "render": "node scripts/render-ad.mjs",
+    "render:wide": "node scripts/render-ad.mjs --only=wide",
+    "render:stills": "node scripts/render-ad.mjs --stills=0.5,3.9,6.8,10.4,13,15.4,18.2,22.6,27.5"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}
