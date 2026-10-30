@@ -1,0 +1,109 @@
+/* Apple-style design tokens for the web. Original CSS; values are the publicly documented
+   system color and text-style values. No Apple artwork or font files. */
+
+:root {
+  color-scheme: light dark;
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* System colors (light) */
+  --blue: #007aff;   --green: #34c759;  --indigo: #5856d6; --orange: #ff9500;
+  --pink: #ff2d55;   --purple: #af52de; --red: #ff3b30;    --teal: #30b0c7;
+  --cyan: #32ade6;   --mint: #00c7be;   --yellow: #ffcc00; --brown: #a2845e;
+  --gray: #8e8e93;
+  --tint: var(--blue);
+
+  /* Semantic */
+  --label: #000;
+  --label-2: rgba(60, 60, 67, 0.6);
+  --label-3: rgba(60, 60, 67, 0.3);
+  --label-4: rgba(60, 60, 67, 0.18);
+  --separator: rgba(60, 60, 67, 0.29);
+  --bg: #fff;
+  --bg-2: #f2f2f7;
+  --bg-3: #fff;
+  --grouped-bg: #f2f2f7;
+  --fill: rgba(120, 120, 128, 0.2);
+  --fill-2: rgba(120, 120, 128, 0.16);
+
+  /* Material (glass) */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --glass-blur: blur(24px) saturate(180%);
+
+  /* Shape */
+  --r-control: 12px;
+  --r-card: 20px;
+  --r-sheet: 28px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur: 280ms;
+
+  /* Text styles: size / line-height (iOS default content size) */
+  --text-large-title: 700 34px/41px var(--font);
+  --text-title-1: 400 28px/34px var(--font);
+  --text-title-2: 400 22px/28px var(--font);
+  --text-title-3: 400 20px/25px var(--font);
+  --text-headline: 600 17px/22px var(--font);
+  --text-body: 400 17px/22px var(--font);
+  --text-callout: 400 16px/21px var(--font);
+  --text-subheadline: 400 15px/20px var(--font);
+  --text-footnote: 400 13px/18px var(--font);
+  --text-caption-1: 400 12px/16px var(--font);
+  --text-caption-2: 400 11px/13px var(--font);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --blue: #0a84ff; --green: #30d158; --indigo: #5e5ce6; --orange: #ff9f0a;
+    --pink: #ff375f; --purple: #bf5af2; --red: #ff453a;    --teal: #40c8e0;
+    --cyan: #64d2ff; --mint: #63e6e2;   --yellow: #ffd60a; --brown: #ac8e68;
+
+    --label: #fff;
+    --label-2: rgba(235, 235, 245, 0.6);
+    --label-3: rgba(235, 235, 245, 0.3);
+    --label-4: rgba(235, 235, 245, 0.16);
+    --separator: rgba(84, 84, 88, 0.6);
+    --bg: #000;
+    --bg-2: #1c1c1e;
+    --bg-3: #2c2c2e;
+    --grouped-bg: #000;
+    --fill: rgba(120, 120, 128, 0.36);
+    --fill-2: rgba(120, 120, 128, 0.32);
+
+    --glass-bg: rgba(40, 40, 44, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--label);
+  font: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass surface for floating controls only. */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--bg-2); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: var(--bg-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

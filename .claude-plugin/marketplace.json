@@ -1,0 +1,29 @@
+{
+  "name": "apple-ui-skills",
+  "owner": { "name": "apple-ui-skills contributors" },
+  "metadata": { "description": "Skills, agents and commands for using Apple's official UI kits from coding agents." },
+  "plugins": [
+    {
+      "name": "apple-ui-skills",
+      "source": "./",
+      "description": "Build in Figma from Apple's kits, implement in SwiftUI or Next.js, and audit Apple-style UI.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": ["apple", "swiftui", "figma", "liquid-glass", "hig"],
+      "skills": [
+        "./skills/apple-ui-core",
+        "./skills/apple-ui-ios-ipados",
+        "./skills/apple-ui-macos",
+        "./skills/apple-ui-visionos",
+        "./skills/apple-ui-watchos",
+        "./skills/apple-ui-figma-build",
+        "./skills/apple-ui-figma-to-code",
+        "./skills/apple-ui-swiftui",
+        "./skills/apple-ui-web",
+        "./skills/apple-ui-cross-platform",
+        "./skills/apple-ui-audit",
+        "./skills/apple-ui-setup"
+      ]
+    }
+  ]
+}

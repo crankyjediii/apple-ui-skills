@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple-style web demo</title>
+<link rel="stylesheet" href="../../skills/apple-ui-web/references/tokens.css">
+<style>
+  body { background: var(--grouped-bg); }
+  main { max-width: 560px; margin: 0 auto; padding: 24px 16px 120px; }
+  h1 { font: var(--text-large-title); margin: 24px 0 4px; }
+  p.lede { color: var(--label-2); margin: 0 0 24px; font: var(--text-subheadline); }
+  main > h2 { font: var(--text-footnote); text-transform: uppercase; letter-spacing: .02em; color: var(--label-2); margin: 28px 16px 8px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 16px; }
+
+  .btn { font: var(--text-body); font-weight: 600; min-height: 44px; padding: 0 20px; border: 0; border-radius: var(--r-pill); cursor: pointer;
+    transition: transform var(--dur) var(--ease-spring), opacity 120ms; }
+  .btn:active { transform: scale(.97); opacity: .85; }
+  .btn:focus-visible, .switch input:focus-visible, .seg label:has(input:focus-visible) { outline: 3px solid color-mix(in srgb, var(--tint) 50%, transparent); outline-offset: 2px; }
+  .btn:disabled { opacity: .35; cursor: default; }
+  .btn--prominent { background: var(--tint); color: #fff; }
+  .btn--tinted { background: color-mix(in srgb, var(--tint) 15%, transparent); color: var(--tint); }
+  .btn--gray { background: var(--fill-2); color: var(--tint); }
+  .btn--plain { background: none; color: var(--tint); }
+  .btn--destructive { background: var(--red); color: #fff; }
+
+  .list { background: var(--bg-3); border-radius: var(--r-card); margin: 0; padding: 0; list-style: none; overflow: hidden; }
+  .list > li { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 0 16px; }
+  .list > li + li { border-top: .5px solid var(--separator); }
+
+  .switch { display: inline-flex; align-items: center; gap: 12px; }
+  .switch input { appearance: none; width: 51px; height: 31px; border-radius: 16px; background: var(--fill); position: relative; margin: 0;
+    transition: background var(--dur) var(--ease-spring); cursor: pointer; }
+  .switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.25); transition: transform var(--dur) var(--ease-spring); }
+  .switch input:checked { background: var(--green); }
+  .switch input:checked::after { transform: translateX(20px); }
+
+  .seg { display: flex; padding: 2px; border-radius: 9px; background: var(--fill-2); margin: 0 16px; }
+  .seg label { flex: 1; text-align: center; padding: 6px 0; border-radius: 7px; font: var(--text-subheadline); font-weight: 500; cursor: pointer; }
+  .seg label:has(input:checked) { background: var(--bg-3); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+
+  .hero { margin: 16px; padding: 28px 20px; border-radius: var(--r-card); color: #fff;
+    background: radial-gradient(120% 120% at 0% 0%, #5e5ce6, #0a84ff 55%, #30d158); }
+  .hero .chip { display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: var(--r-pill); font: var(--text-subheadline); font-weight: 600; }
+
+  .tabbar { position: fixed; inset: auto 16px max(16px, env(safe-area-inset-bottom)) 16px; max-width: 528px; margin: 0 auto; display: flex;
+    justify-content: space-around; padding: 8px; border-radius: 32px; }
+  .tabbar a { padding: 8px 16px; border-radius: 24px; color: var(--label-2); text-decoration: none; font: var(--text-caption-1); }
+  .tabbar a[aria-current="page"] { background: var(--fill-2); color: var(--tint); }
+
+  dialog.sheet { border: 0; padding: 8px 20px 24px; width: min(100%, 560px); margin: auto auto 0; border-radius: var(--r-sheet) var(--r-sheet) 0 0;
+    background: var(--bg-2); color: var(--label); }
+  dialog.sheet::backdrop { background: rgba(0,0,0,.35); }
+  .grabber { width: 36px; height: 5px; border-radius: 3px; background: var(--label-3); margin: 0 auto 12px; }
+  .note { margin: 32px 16px 0; color: var(--label-3); font: var(--text-footnote); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Settings</h1>
+  <p class="lede">Apple-style controls built from <code>tokens.css</code>. Follows your system light or dark setting.</p>
+
+  <h2>Buttons</h2>
+  <div class="row">
+    <button class="btn btn--prominent">Prominent</button>
+    <button class="btn btn--tinted">Tinted</button>
+    <button class="btn btn--gray">Gray</button>
+    <button class="btn btn--plain">Plain</button>
+    <button class="btn btn--destructive">Delete</button>
+    <button class="btn btn--gray" disabled>Disabled</button>
+  </div>
+
+  <h2>Toggles</h2>
+  <ul class="list">
+    <li><span>Wi-Fi</span><label class="switch"><input type="checkbox" role="switch" aria-label="Wi-Fi" checked></label></li>
+    <li><span>Bluetooth</span><label class="switch"><input type="checkbox" role="switch" aria-label="Bluetooth"></label></li>
+    <li><span>Airplane Mode</span><label class="switch"><input type="checkbox" role="switch" aria-label="Airplane Mode" disabled></label></li>
+  </ul>
+
+  <h2>Segmented control</h2>
+  <div class="seg" role="radiogroup" aria-label="View">
+    <label><input type="radio" name="v" checked>Day</label>
+    <label><input type="radio" name="v">Week</label>
+    <label><input type="radio" name="v">Month</label>
+  </div>
+
+  <h2>Material</h2>
+  <div class="hero">
+    <strong style="font: var(--text-title-2)">Now playing</strong><br>
+    <span class="glass chip">Glass chip over content</span>
+  </div>
+
+  <h2>Sheet</h2>
+  <div class="row"><button class="btn btn--tinted" id="open">Open sheet</button></div>
+
+  <p class="note">An approximation of Apple's look from public HIG principles. Not Apple artwork. SF fonts and symbols are not included.</p>
+</main>
+
+<nav class="tabbar glass" aria-label="Primary">
+  <a aria-current="page" href="#">Home</a><a href="#">Library</a><a href="#">Search</a>
+</nav>
+
+<dialog class="sheet" id="sheet" aria-label="Example sheet">
+  <div class="grabber"></div>
+  <h2 style="margin:0 0 8px;font:var(--text-title-3)">New item</h2>
+  <p style="color:var(--label-2);margin:0 0 16px">Native dialog element: Escape closes it and focus stays inside.</p>
+  <button class="btn btn--prominent" id="close" style="width:100%">Done</button>
+</dialog>
+
+<script>
+  const sheet = document.getElementById('sheet');
+  document.getElementById('open').addEventListener('click', () => sheet.showModal());
+  document.getElementById('close').addEventListener('click', () => sheet.close());
+</script>
+</body>
+</html>
