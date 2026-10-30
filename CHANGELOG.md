@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **SwiftUI Preview Gallery (`examples/apple-ui-gallery/`)**: Standalone Swift Package featuring `#Preview` blocks for iOS (adaptive tab bar, Liquid Glass buttons, inset grouped lists), macOS (unified toolbar, split view, push buttons), visionOS (spatial glass ornaments, gaze hover effects), and watchOS (carousel, Digital Crown, capsule action button).
+- **Tailwind v4 Theme Preset (`skills/apple-ui-web/references/tailwind-theme.css`)**: Drop-in `@theme` configuration mapping all Apple system colors, label hierarchies, background levels, corner radii, and spring curves.
+- **Cross-Platform Recipes (`skills/apple-ui-cross-platform/references/recipes.md`)**: Copy-pasteable snippets for React Native / Expo (`PlatformColor` Inset Grouped lists, native buttons, ActionSheetIOS, `expo-blur` glass container) and Flutter Cupertino widgets.
+
 ## [0.2.1] - 2026-10-30
 
 ### Added

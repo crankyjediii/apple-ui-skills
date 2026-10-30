@@ -1,0 +1,53 @@
+/* Tailwind CSS v4 Theme Preset for Apple UI
+   Usage in your globals.css or main stylesheet:
+   @import "./skills/apple-ui-web/references/tailwind-theme.css";
+*/
+
+@import "./tokens.css";
+
+@theme {
+  /* System colors mapped to theme utilities (e.g. text-tint, bg-blue, border-separator) */
+  --color-tint: var(--tint);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+  --color-indigo: var(--indigo);
+  --color-orange: var(--orange);
+  --color-pink: var(--pink);
+  --color-purple: var(--purple);
+  --color-red: var(--red);
+  --color-teal: var(--teal);
+  --color-cyan: var(--cyan);
+  --color-mint: var(--mint);
+  --color-yellow: var(--yellow);
+  --color-gray: var(--gray);
+
+  /* Semantic labels and borders */
+  --color-label: var(--label);
+  --color-label-secondary: var(--label-2);
+  --color-label-tertiary: var(--label-3);
+  --color-label-quaternary: var(--label-4);
+  --color-separator: var(--separator);
+
+  /* Backgrounds */
+  --color-bg-primary: var(--bg);
+  --color-bg-secondary: var(--bg-2);
+  --color-bg-tertiary: var(--bg-3);
+  --color-bg-grouped: var(--grouped-bg);
+
+  /* Fills */
+  --color-fill-primary: var(--fill);
+  --color-fill-secondary: var(--fill-2);
+
+  /* Corner radii */
+  --radius-control: var(--r-control);
+  --radius-card: var(--r-card);
+  --radius-sheet: var(--r-sheet);
+  --radius-pill: var(--r-pill);
+
+  /* Fonts */
+  --font-apple: var(--font);
+  --font-apple-mono: var(--font-mono);
+
+  /* Spring animation transition */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+}

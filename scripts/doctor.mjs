@@ -151,7 +151,9 @@ const expectedRefs = [
   'skills/apple-ui-watchos/references/usage.md',
   'skills/apple-ui-watchos/references/components.md',
   'skills/apple-ui-web/references/tokens.css',
-  'skills/apple-ui-web/references/recipes.md'
+  'skills/apple-ui-web/references/recipes.md',
+  'skills/apple-ui-web/references/tailwind-theme.css',
+  'skills/apple-ui-cross-platform/references/recipes.md'
 ];
 
 let refsHealthy = 0;

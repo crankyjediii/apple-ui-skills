@@ -5,7 +5,7 @@ description: Apple-style UI in React Native, Flutter, Kotlin Multiplatform or Co
 
 # Apple look in other stacks
 
-Load `apple-ui-core` and the platform skill first. For Vue, Svelte and Angular reuse `apple-ui-web` (tokens and recipes are framework-neutral CSS); the rest of this skill covers mobile and desktop stacks.
+Load `apple-ui-core` and the platform skill first. For Vue, Svelte and Angular reuse `apple-ui-web` (tokens and recipes are framework-neutral CSS); the rest of this skill covers mobile and desktop stacks. Ready-to-use snippets for React Native and Flutter: `references/recipes.md`.
 
 ## Licensing note (tell the user)
 

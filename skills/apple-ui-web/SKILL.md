@@ -33,7 +33,7 @@ The Apple kits are licensed for mock-ups of **Apple-OS software**. A website is 
 
 ## Tailwind
 
-Map tokens in Tailwind v4 with `@theme { --color-tint: var(--tint); --color-label: var(--label); ... }` after importing `tokens.css`, or use `bg-[var(--bg)]` arbitrary values. See `references/recipes.md` for components.
+Import `references/tailwind-theme.css` directly in your CSS for full Tailwind v4 `@theme` integration, or use `references/tokens.css` with arbitrary values (`bg-[var(--bg)]`). See `references/recipes.md` for components.
 
 ## Verify
 
