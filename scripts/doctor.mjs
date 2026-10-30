@@ -31,7 +31,7 @@ const run = (cmd) => {
   }
 };
 
-console.log(`\n${c.bold}Apple UI Skills Doctor${c.reset} ${c.gray}(v0.3.0)${c.reset}\n`);
+console.log(`\n${c.bold}Apple UI Skills Doctor${c.reset} ${c.gray}(v0.4.0)${c.reset}\n`);
 
 let passed = 0;
 let warnings = 0;
