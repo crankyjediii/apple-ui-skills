@@ -15,8 +15,8 @@ Use this skill first. It routes to the platform skill (what the components are) 
 | Mac components | `apple-ui-macos` |
 | Apple Vision Pro components | `apple-ui-visionos` |
 | Apple Watch components | `apple-ui-watchos` |
-| Compose a design in Figma from kit components | `apple-ui-figma-build` |
-| Turn a kit node or a user's design into code | `apple-ui-figma-to-code`, then a stack skill |
+| Compose a design in Figma from kit components (needs Figma) | `apple-ui-figma-build` |
+| Turn a Figma node into code (needs Figma) | `apple-ui-figma-to-code`, then a stack skill |
 | Native code | `apple-ui-swiftui` |
 | Next.js / React / CSS | `apple-ui-web` |
 | React Native, Flutter, Compose, Vue, Svelte | `apple-ui-cross-platform` |
@@ -24,6 +24,17 @@ Use this skill first. It routes to the platform skill (what the components are) 
 | First run, "is this working?", kit not readable | `apple-ui-setup` |
 
 If the stack is not covered, map each kit component to that stack's closest native control, keep the semantic tokens below, and say what you approximated.
+
+Figma is optional. Without a Figma connection, every skill except the Figma-only ones (`apple-ui-figma-build`, `apple-ui-figma-to-code`) still works from the reference files: `references/patterns.md`, and each platform's `<platform skill>/references/usage.md`, `<platform skill>/references/components.md` and kit-to-API tables. If the user has a design in Figma but no connection, ask them to describe it or share a screenshot of their own design.
+
+## Where, when, why, how
+
+Before placing a component, decide the screen pattern, then the component.
+
+- Screen patterns (navigation, settings, search, forms, confirmations, empty states): `references/patterns.md`.
+- Per-component usage (where it appears, when to use it, why, native API, what to avoid): `<platform skill>/references/usage.md`.
+
+Kit screenshots are not stored in this skill (see license guardrails). Read the component's structure from the kit with the steps below, and check the usage rule against the HIG page it names.
 
 ## License guardrails (always apply)
 
@@ -34,7 +45,9 @@ The kits are Apple Design Resources: licensed for **mock-ups of UIs for Apple-OS
 
 Reading structure (names, variant axes, sizes, spacing) to guide your own implementation is the intended use. Write original code. When asked for a web/non-Apple-OS product, use the public HIG principles and the tokens in `apple-ui-web`, not kit artwork, and tell the user the look is an approximation.
 
-## Reading a kit (Figma MCP)
+## Reading a kit (optional, needs the Figma MCP)
+
+Use these steps only when the user wants exact values from their own copy of a kit. The rest of the skill does not depend on them.
 
 1. The user needs their own copy of the Community file (Figma: *Open in Figma*, then duplicate). Ask for its URL if the default key is not readable. Keys: `references/kits.md`.
 2. Call `create_session` once with the file key, then reuse its `sessionId`.

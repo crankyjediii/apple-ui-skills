@@ -5,10 +5,11 @@ description: macOS 26 UI kit knowledge. Use when designing or building Mac app w
 
 # macOS 26 kit
 
-Load `apple-ui-core` first for license guardrails and the Figma read workflow.
+Load `apple-ui-core` first for license guardrails. Its Figma steps are optional.
 
 - Kit: file key `1oJBVhrLD3oLk3FwQPlFD4` (see `apple-ui-core/references/kits.md`).
 - Component index with page ids and variant axes: `references/components.md`.
+- Where, when, why and how to use each component: `references/usage.md`.
 - Write code with `apple-ui-swiftui` (SwiftUI first, AppKit when SwiftUI has no equivalent).
 
 ## Platform facts

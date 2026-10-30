@@ -6,7 +6,13 @@ Copy, paste, and replace the parts in `<angle brackets>`. You do not need to nam
 
 > Set up the Apple UI kit skills for me. I'm building <an iPhone app / a Mac app / a Vision Pro app / a Watch app> in <SwiftUI / Next.js / Figma>.
 
-## Design in Figma
+## Without Figma
+
+> Build a SwiftUI settings screen for my iPhone app with the Apple iOS patterns: <describe the screen>.
+
+> Make this Next.js dashboard feel like iOS: <path>. Say what you approximated.
+
+## Design in Figma (needs Figma)
 
 > Using the Apple iOS kit, design a 3-step onboarding flow for <my app>. Use real kit components, light and dark.
 

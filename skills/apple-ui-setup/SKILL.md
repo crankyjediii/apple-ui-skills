@@ -1,27 +1,28 @@
 ---
 name: apple-ui-setup
-description: Friendly first-run check for the Apple UI kit skills. Use when the user says "set up", "get started", "is this working", "check my setup", asks how to begin with these skills, or when a kit cannot be read. Confirms the Figma connection, finds or guides duplicating the four Apple kits, picks the target platform and stack, and finishes with example prompts.
+description: Friendly first-run check for the Apple UI kit skills. Use when the user says "set up", "get started", "is this working", "check my setup", or asks how to begin with these skills. Picks the platform and stack, checks the toolchain, and offers optional Figma access for kit files and Figma designs.
 ---
 
 # Apple UI kits: setup check
 
-Be brief and friendly. Do one step at a time and say what you found in plain words. Never ask the user to paste tokens or passwords.
+Be brief and friendly. Do one step at a time and say what you found in plain words. Never ask the user to paste tokens or passwords. Figma is optional: nothing here requires it.
 
 ## 1. What are you making?
 
 Ask once (offer the choices as a short list):
 - Platform: iPhone/iPad, Mac, Apple Vision Pro, Apple Watch (one or more).
-- Output: design in Figma, native SwiftUI, Next.js/React, or another stack (React Native, Flutter...).
+- Output: native SwiftUI, Next.js/React, another stack (React Native, Flutter...), or a review of existing UI.
 
 Remember the answers; load the matching skills from `apple-ui-core`'s routing table.
 
-## 2. Is Figma connected?
+## 2. Do they want Figma?
 
-Try a harmless read with the Figma MCP (for example `whoami`). If the tools do not exist or fail:
-- Tell the user the Figma connection is missing and that only Figma-based steps need it. Native code and web recipes still work without it.
-- Point them to Figma's MCP server setup for their agent, then retry.
+Ask once: do they want Figma (their own copy of the kits, or a design in Figma), or code and review from the built-in references only?
 
-## 3. Can the kits be read?
+- References only: skip to step 4. Nothing needs installing.
+- Figma: try a harmless read with the Figma MCP (for example `whoami`). If the tools are missing or fail, say that Figma is optional, the skills still work from the references, and point to Figma's MCP setup only for this Figma path. Then continue without it.
+
+## 3. Can the kits be read? (only if they chose Figma and it works)
 
 For each platform they chose, call `get_metadata` with the kit's file key (see `apple-ui-core/references/kits.md`) and no node id. Expected: a list of pages such as Cover, Getting Started, Colors, component pages.
 
@@ -36,8 +37,8 @@ For each platform they chose, call `get_metadata` with the kit's file key (see `
 ## 5. Finish
 
 Reply with a short summary (what is ready, what is missing, one fix per missing item) and three example prompts tailored to their answers, such as:
-- "Build the Settings screen from <their kit URL> in SwiftUI."
-- "Design an iPhone onboarding flow with the Apple components."
+- "Build the Settings screen for my iPhone app in SwiftUI: <describe it>."
+- "Design an iPhone onboarding flow with the Apple components." (Figma path only)
 - "Audit this view against the Apple kits."
 
 Do not start building until they pick one.

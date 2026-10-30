@@ -5,6 +5,8 @@ description: Turn a Figma node into code by recognising which Apple UI kit compo
 
 # Figma node to code, Apple-kit aware
 
+This skill needs a connected Figma MCP. Without one, ask the user to describe the screen or share a screenshot of their own design, then map it with the platform's `<platform skill>/references/usage.md` and `<platform skill>/references/components.md`.
+
 Load `apple-ui-core`, then the platform skill, then the stack skill (`apple-ui-swiftui` or `apple-ui-web`). Also load the Figma plugin's `figma-design-to-code` guidance before calling `get_design_context`.
 
 ## Workflow

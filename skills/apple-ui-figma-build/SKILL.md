@@ -5,6 +5,8 @@ description: Compose screens in Figma from the official Apple 26 UI kit componen
 
 # Build Apple screens in Figma from the kits
 
+This skill needs a connected Figma MCP. If Figma is not connected, say so and offer the SwiftUI or Next.js build from the platform's `<platform skill>/references/usage.md` instead.
+
 Load `apple-ui-core` and the platform skill (`apple-ui-ios-ipados`, `apple-ui-macos`, `apple-ui-visionos`, `apple-ui-watchos`) first. Also follow the Figma plugin's `figma-use` and `figma-generate-design` skills; they are mandatory before any `use_figma` write.
 
 ## Where to build
